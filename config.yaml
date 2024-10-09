@@ -1,0 +1,18 @@
+inference:
+  knn_model_path: 'knnpickle_file'
+
+sentence_transformers:
+  model: 'all-mpnet-base-v2'
+
+train:
+  train_data_path: 'job_skills.csv'
+  
+  knn:
+    k: 2
+    metric: 'cosine'
+    weights: 'distance'
+  
+  cross_validation:
+    num_folds: 5
+    random_state: 42
+    shuffle: True
