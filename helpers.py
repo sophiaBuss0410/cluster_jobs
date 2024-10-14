@@ -2,6 +2,9 @@ import yaml
 import json
 import pandas as pd
 
+
+TEMPLATE = """We are seeking a professional with [Experience/Qualifications], possessing [Skills] and [Tools/Technologies]. This role requires the ability to [Responsibilities/Expectations], with excellent [Soft Skills]. Familiarity with [Industry/Fields], and the capability to [Additional Responsibilities/Expectations] is preferred."""
+
 def read_config(config_path ="config.yaml"):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
@@ -56,3 +59,30 @@ def encode_data(df, column_to_encode= "Role"):
     roles = le.fit_transform(df[column_to_encode])
     role_to_id = {role: int(role_id) for role, role_id in zip(le.classes_, le.transform(le.classes_))}
     return role_to_id
+
+def fill_template(input_dict, template = TEMPLATE):
+    """
+    Fills the given template with values from the input_dict.
+    
+    Parameters:
+    template (str): The template to fill in.
+    input_dict (dict): A dictionary containing lists of values or None for each placeholder in the template.
+    
+    Returns:
+    str: The template with placeholders filled in.
+    """
+    if not isinstance(input_dict, dict):
+        input_dict = json.loads(input_dict)
+    for key, value in input_dict.items():
+        if value:  # if value is a list and not empty
+            replacement = ', '.join(value)
+        else:  # if value is None or an empty list
+            replacement = f"[{key}]"
+        
+        # Replace the placeholder in the template
+        template = template.replace(f"[{key}]", replacement)
+    
+    return template
+
+
+    
