@@ -1,5 +1,5 @@
 inference:
-  knn_model_path: 'knnpickle_template_w_raw'
+  knn_model_path: 'knnpickle_new_template_w_raw'
 
 sentence_transformers:
   model: 'all-mpnet-base-v2'

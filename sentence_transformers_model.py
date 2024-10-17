@@ -11,7 +11,7 @@ from mde import mde
 
 @singleton
 class LanguageModel():
-    def __init__(self, model_name, visualization_method) -> None:
+    def __init__(self, model_name, visualization_method="tsne") -> None:
         self.model = SentenceTransformer(model_name)
         self.df = pd.read_csv("./data/roles_all_w_intern_wo_admin.csv")
         self.roles = self.df["Description"].values
