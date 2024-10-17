@@ -14,7 +14,13 @@ class KnnClassifier():
     def predict(self, text_embedding):
         if isinstance(text_embedding, str):
             text_embedding = self.embedder.encode([text_embedding])
-        label =  self.model.predict(text_embedding)[0]
+        label =  self.model.predict(text_embedding)
+        return label
+    
+    def predict_proba(self, text_embedding):
+        if isinstance(text_embedding, str):
+            text_embedding = self.embedder.encode([text_embedding])
+        label =  self.model.predict_proba(text_embedding)
         return label
 
 
