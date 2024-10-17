@@ -13,7 +13,7 @@ from mde import mde
 class LanguageModel():
     def __init__(self, model_name, visualization_method="tsne") -> None:
         self.model = SentenceTransformer(model_name)
-        self.df = pd.read_csv("./data/roles_all_w_intern_wo_admin.csv")
+        self.df = pd.read_csv("./data/roles_all_w_intern_wo_admin_w_title_wo_legal.csv")
         self.roles = self.df["Description"].values
         self.labels = self.df["Role"].values
         self.embeddings_file = "./data/embeddings.txt"
