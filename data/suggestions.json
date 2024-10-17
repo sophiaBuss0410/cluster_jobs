@@ -46,8 +46,8 @@
         "presentation software"
     ],
     "Key Responsibilities": [
-        "Blog and write technical articles.",
-        "Negotiate and draft technology agreements.",
+        "blog and write technical articles.",
+        "negotiate and draft technology agreements.",
         "analyzing data",
         "building and maintaining client relationships",
         "collaborating with cross-functional teams to drive project success",
@@ -68,7 +68,8 @@
         "negotiations",
         "overseeing budget management and financial analysis",
         "supporting software development and coding practices",
-        "training machine learning models."
+        "training machine learning models.",
+        "travel regularly in EMEA"
     ],
     "Soft Skills": [
         "Ability to work within a team",
@@ -112,9 +113,11 @@
         "network security and architecture",
         "software development",
         "user experience design methodologies",
-        "web development"
+        "web development",
+        "SaaS, PaaS, and IaaS technologies"
     ],
     "Industry Standards/Practices": [
+        "Customer Relationship Management (CRM) Best Practices",
         "Ethical AI Guidelines",
         "GAAP standards and financial regulations",
         "Health and Safety standards",
@@ -143,6 +146,7 @@
         "IBM Data Science Professional Certificate",
         "PMP",
         "Project Management Institute Agile Certified Practitioner (PMI-ACP)",
+        "Salesforce Certificate",
         "Scrum Master Certification"
     ]
 }
