@@ -86,3 +86,11 @@ def fill_template(input_dict, template = TEMPLATE):
 
 
     
+def concat_output(json_output):
+    template = ""
+    for k,v in json_output.items():
+        if len(v):
+            template += ", ".join(v)
+            template += ", "
+
+    return template
