@@ -1,5 +1,12 @@
 # Job Sphere: Your Personal Job Recommendations Application
 
+- This project implements a job role recommendation system that matches user input to predefined job role clusters using advanced NLP techniques and plots the user on the job sphere interactive graph. The system is designed to help users identify relevant job roles based on their skills and qualifications.
+- The project consists of two phases described in the following figure:
+
+    ![Project Flow](assets/flow.jpg)
+
+
+
 - The data used in this prject is initially taken from [Kaggle](https://www.kaggle.com/datasets/niyamatalmass/google-job-skills). The data has been cleaned and preprocessdd. You can access data preprocessing and visualisation codes  (EDA) from `notebooks/google-job-skills-preprocessing_visualizations.ipynb`
 
 ## Installation
