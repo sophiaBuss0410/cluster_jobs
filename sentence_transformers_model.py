@@ -9,17 +9,21 @@ from helpers import singleton, read_config, read_json
 from tsne import tsne, pca
 from mde import mde
 
+
+root_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(root_dir, 'data')
+
 @singleton
 class LanguageModel():
     def __init__(self, model_name, visualization_method="tsne") -> None:
         self.model = SentenceTransformer(model_name)
-        self.df = pd.read_csv("./data/roles_all_w_intern_wo_admin_w_title_wo_legal.csv")
+        self.df = pd.read_csv(os.path.join(data_dir, "roles_all_w_intern_wo_admin_w_title_wo_legal.csv"))
         self.roles = self.df["Description"].values
         self.labels = self.df["Role"].values
-        self.embeddings_file = "./data/embeddings.txt"
-        self.coordinates_file = f"./data/{visualization_method}_coordinates.csv"
+        self.embeddings_file = os.path.join(data_dir,"embeddings.txt")
+        self.coordinates_file = os.path.join(data_dir,f"{visualization_method}_coordinates.csv")
         self.visualization_method = visualization_method
-        self.rol_to_id_dict = read_json("./data/role_to_id.json")
+        self.rol_to_id_dict = read_json(os.path.join(data_dir,"role_to_id.json"))
 
     def encode(self, texts):
         encoded_data = self.model.encode(texts, show_progress_bar=True)

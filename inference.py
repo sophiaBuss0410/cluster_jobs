@@ -2,12 +2,16 @@ from helpers import read_config, singleton
 
 from sentence_transformers_model import LanguageModel
 import pickle
+import os 
+
+root_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 
 @singleton
 class KnnClassifier():
     def __init__(self, visualization_method, config) -> None:
-        self.model = pickle.load(open(config["inference"]["knn_model_path"], 'rb'))
+        self.model = pickle.load(open(os.path.join(root_dir, config["inference"]["knn_model_path"]), 'rb'))
         self.embedder = LanguageModel(config['sentence_transformers']['model'], visualization_method)
 
     

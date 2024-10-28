@@ -6,7 +6,6 @@
     ![Project Flow](assets/flow.jpg)
 
 
-
 - The data used in this prject is initially taken from [Kaggle](https://www.kaggle.com/datasets/niyamatalmass/google-job-skills). The data has been cleaned and preprocessdd. You can access data preprocessing and visualisation codes  (EDA) from `notebooks/google-job-skills-preprocessing_visualizations.ipynb`
 
 ## Installation

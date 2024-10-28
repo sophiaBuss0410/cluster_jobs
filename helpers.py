@@ -2,13 +2,19 @@ import yaml
 import json
 import pandas as pd
 
+import os
+
+root_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(root_dir, 'data')
+
+
 
 def read_text(file_path):
     with open(file_path, "r") as f:
         return f.read()
     
 
-def read_config(config_path ="config.yaml"):
+def read_config(config_path = os.path.join(root_dir, 'config.yaml')):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
         return config
@@ -63,7 +69,8 @@ def encode_data(df, column_to_encode= "Role"):
     role_to_id = {role: int(role_id) for role, role_id in zip(le.classes_, le.transform(le.classes_))}
     return role_to_id
 
-TEMPLATE = read_text("data/template.txt")
+
+TEMPLATE = read_text(os.path.join(data_dir, 'template.txt'))
 def fill_template(input_dict, template = TEMPLATE):
     """
     Fills the given template with values from the input_dict.
@@ -105,4 +112,4 @@ def concat_output(json_output):
 
 
 if __name__ == "__main__":
-    print(read_text("data/template.txt"))
+    print(read_text(os.path.join(data_dir, 'template.txt')))
