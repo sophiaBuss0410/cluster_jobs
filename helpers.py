@@ -3,7 +3,10 @@ import json
 import pandas as pd
 
 
-TEMPLATE = """We are seeking a professional with [Experience/Qualifications], possessing [Skills] and [Tools/Technologies]. This role requires the ability to [Responsibilities/Expectations], with excellent [Soft Skills]. Familiarity with [Industry/Fields], and the capability to [Additional Responsibilities/Expectations] is preferred."""
+def read_text(file_path):
+    with open(file_path, "r") as f:
+        return f.read()
+    
 
 def read_config(config_path ="config.yaml"):
     with open(config_path, 'r') as file:
@@ -60,6 +63,7 @@ def encode_data(df, column_to_encode= "Role"):
     role_to_id = {role: int(role_id) for role, role_id in zip(le.classes_, le.transform(le.classes_))}
     return role_to_id
 
+TEMPLATE = read_text("data/template.txt")
 def fill_template(input_dict, template = TEMPLATE):
     """
     Fills the given template with values from the input_dict.
@@ -74,10 +78,12 @@ def fill_template(input_dict, template = TEMPLATE):
     if not isinstance(input_dict, dict):
         input_dict = json.loads(input_dict)
     for key, value in input_dict.items():
-        if value:  # if value is a list and not empty
-            replacement = ', '.join(value)
-        else:  # if value is None or an empty list
+        if not value or len(value) == 0:
             replacement = f"[{key}]"
+        if isinstance(value, str):
+            replacement = value
+        else:  # if value is a list and not empty
+            replacement = ', '.join(value)
         
         # Replace the placeholder in the template
         template = template.replace(f"[{key}]", replacement)
@@ -89,8 +95,14 @@ def fill_template(input_dict, template = TEMPLATE):
 def concat_output(json_output):
     template = ""
     for k,v in json_output.items():
-        if len(v):
+        if isinstance(v, str):
+            template += v
+        elif len(v):
             template += ", ".join(v)
             template += ", "
 
     return template
+
+
+if __name__ == "__main__":
+    print(read_text("data/template.txt"))
