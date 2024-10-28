@@ -198,4 +198,4 @@ def update_output(n_clicks, input_values, input_ids, prev_fig):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(debug=False,  port=5050)
