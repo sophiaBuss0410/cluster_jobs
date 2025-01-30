@@ -1,6 +1,10 @@
 # Job Sphere: Your Personal Job Recommendations Application
 
 - This project implements a job role recommendation system that matches user input to predefined job role clusters using advanced NLP techniques and plots the user on the job sphere interactive graph. The system is designed to help users identify relevant job roles based on their skills and qualifications.
+- This project was developed by the following team:
+    - Rayene Bech
+    - Oskar Blyt
+    - Haruka Buss
 - Please check the demo of this project from this [link](https://drive.google.com/file/d/1mDvLh15KiG2M227G2aHAltgOHEv7bVeo/view)
 - The project consists of two phases described in the following figure:
 
